@@ -1,0 +1,6 @@
+a=int(input("Enter the side of the cube:"))
+if a>=1 and a<=50:
+   area=a*a*a;
+   print("Volume of Cube :",area)
+else:
+   print("the side of cube should be greater than or equal to 1 and lesser than or equal to 50")
