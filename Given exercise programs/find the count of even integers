@@ -1,0 +1,9 @@
+N = int(input("Enter the no.of.integers:"))
+even_count = 0
+if N<=10000:
+    for i in range(1, N + 1):
+        if i % 2 == 0:
+            even_count += 1
+    print("Count of even integers:",even_count)
+else:
+    print("The value of N should be less than or equal to 10000")
