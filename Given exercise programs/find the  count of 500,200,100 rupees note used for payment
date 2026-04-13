@@ -1,0 +1,1 @@
+amt=int(input("Enter the amount:")); print(f"500: {amt//500}, 200: {(amt%500)//200}, 100: {((amt%500)%200)//100}")
