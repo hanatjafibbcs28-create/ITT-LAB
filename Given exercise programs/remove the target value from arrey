@@ -1,0 +1,21 @@
+array1 = input("Enter nums (separated by space): ").split()
+nums = []
+for x in array1:
+    nums.append(int(x))
+val = int(input("Enter val to remove: "))
+original_len = len(nums)
+k = 0
+for i in range(original_len):
+    if nums[i] != val:
+        nums[k] = nums[i]
+        k += 1
+display_list = []
+for i in range(original_len):
+    if i < k:
+        display_list.append(str(nums[i]))
+    else:
+        display_list.append("_")
+print(f"Input: nums = {nums[:original_len]}, val = {val}")
+print(f"Output: {k}, nums = [{', '.join(display_list)}]")
+print(f"Explanation: Your program returns k = {k}, with the first {k} elements of nums being {nums[:k]}.")
+
