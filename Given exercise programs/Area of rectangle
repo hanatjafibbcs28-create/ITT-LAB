@@ -1,0 +1,8 @@
+l=int(input("Enter the length:"))
+b=int(input("Enter the breadth:"))
+if l<1:
+	print("the value  of length should be greater than 1")
+elif b>100:
+	print("the value of breadth should be less than 100")
+else:
+	print("area of rectangle:",(l*b))
