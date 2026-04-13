@@ -1,0 +1,7 @@
+balance = 5000
+amount = int(input("Enter withdrawal amount: "))
+
+if amount % 100 == 0 and amount <= balance: print(f"Success! New balance: {balance - amount}")
+elif amount % 100 != 0: print("Error: Amount must be a multiple of 100.")
+else: print("Error: Insufficient balance.")
+
