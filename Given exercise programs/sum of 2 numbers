@@ -1,0 +1,8 @@
+a=int(input("enter the number1:"))
+b=int(input("enter the number2:"))
+if b>1000:
+   print("the value of B should be less 1000 only")
+elif a<0:
+   print("the value of A should not be less than 0")
+else:
+   print("sum of two numbers is:",(a+b))
