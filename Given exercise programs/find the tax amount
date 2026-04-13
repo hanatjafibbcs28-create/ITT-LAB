@@ -1,0 +1,11 @@
+salary = float(input("Enter Salary in LPA: "))
+if salary <= 2.5: 
+	tax=0
+	print("No tax applicable if LPA is below 2.5")
+elif salary <= 5: 
+	tax = (salary - 2.5) * 0.05
+elif salary <= 10: 
+	tax = 0.125 + (salary - 5) * 0.10
+else: 
+	tax = 0.625 + (salary - 10) * 0.15
+print(f"Tax: {tax:.3f} LPA")
