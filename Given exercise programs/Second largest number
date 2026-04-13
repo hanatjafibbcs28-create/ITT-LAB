@@ -1,0 +1,12 @@
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+c = float(input("Enter third number: "))
+
+if (b <= a <= c) or (c <= a <= b):
+    second_largest = a
+elif (a <= b <= c) or (c <= b <= a):
+    second_largest = b
+else:
+    second_largest = c
+
+print(second_largest)
