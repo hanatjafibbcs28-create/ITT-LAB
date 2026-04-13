@@ -1,0 +1,6 @@
+c=int(input("Enter the C value:"))
+if(c>=-50 and c<=100):
+   f=(c*(9/5))+32
+   print("Farenheit is:",f)
+else:
+   print("the celsius is either less than -50 or greater than 100. so no execution will occur")
