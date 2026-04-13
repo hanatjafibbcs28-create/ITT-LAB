@@ -1,0 +1,8 @@
+marks = [int(x) for x in input("Enter three marks: ").split()]
+if all(0 <= m <= 100 for m in marks):
+    total = sum(marks)
+    average = total / 3
+    print(total)
+    print(f"{average:.2f}")
+else:
+    print("Invalid input. Marks must be between 0 and 100.")
