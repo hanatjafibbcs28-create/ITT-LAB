@@ -1,0 +1,6 @@
+bp = int(input("Enter the bp:"))
+if 5000 <= bp <= 50000:
+    hra = 0.20 * bp
+    da = 0.10 * bp
+    gross = bp + hra + da
+    print(gross)
