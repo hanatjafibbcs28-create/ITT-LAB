@@ -1,0 +1,25 @@
+print("***************************************")
+print("        ONLINE PURCASE MART         ")
+print("  40A,ANNANAGAR,8TH STREET, TUTICORIN ")
+print("       Contact: +91 98948 97999     ")
+print("***************************************\n")
+
+amount = float(input("Enter total purchase amount:"))
+
+if amount >= 5000:
+    discount_percent = 20
+    final_bill = amount - (amount * 0.20)
+elif amount >= 3000:
+    discount_percent = 10
+    final_bill = amount - (amount * 0.10)
+else:
+    discount_percent = 0
+    final_bill = amount
+
+print("\n----------- FINAL BILL -----------")
+print(f"Original Amount : �{amount:.2f}")
+print(f"Discount Applied: {discount_percent}%")
+print(f"Total to Pay    : �{final_bill:.2f}")
+print("------------------------------------")
+print("     Thank you for shopping!       ")
+print("************************************")
