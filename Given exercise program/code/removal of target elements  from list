@@ -1,0 +1,42 @@
+# 1. Simple Color Codes
+GREEN  = "\033[32m"
+RED    = "\033[31m"
+YELLOW = "\033[33m"
+RESET  = "\033[0m"
+
+# 2. Get User Input
+print("Enter numbers separated by space (Example: 3 2 2 3)")
+raw_input = input("nums = ").split()
+
+# Convert strings to integers using a simple loop
+nums = []
+for x in raw_input:
+    nums.append(int(x))
+
+val = int(input("val = "))
+original_len = len(nums)
+
+# 3. Logic: Keep numbers that are NOT 'val'
+k = 0
+for i in range(original_len):
+    if nums[i] != val:
+        nums[k] = nums[i]
+        k += 1
+
+# 4. Create the [2, 2, _, _] display using a loop
+display_list = []
+for i in range(original_len):
+    if i < k:
+        # Valid numbers in Green
+        display_list.append(GREEN + str(nums[i]) + RESET)
+    else:
+        # Underscores in Yellow
+        display_list.append(YELLOW + "_" + RESET)
+
+# 5. Final Output in your exact format
+print("\n" + "-"*30)
+print(f"Input: nums = {nums[:original_len]}, val = {RED}{val}{RESET}")
+print(f"Output: {GREEN}{k}{RESET}, nums = [{', '.join(display_list)}]")
+print(f"Explanation: Your function returns k = {k}, with the first {k} elements being {nums[:k]}.")
+print("-"*30)
+
