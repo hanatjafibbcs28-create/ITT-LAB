@@ -1,0 +1,2 @@
+char = input("Enter a character: ")
+print("The given character is a Vowel" if char.lower() in 'aeiou'else "The given character is a Consonant")
