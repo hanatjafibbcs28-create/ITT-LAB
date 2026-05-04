@@ -1,0 +1,51 @@
+Since all chess boards available in the market are boards, Alex decides to paint a customised board.
+Given the painted chess board, can you tell if it is painted correctly or not? A chess board is considered valid if every adjacent cell is painted with different color.
+Two cells are considered adjacent if they share a boundary
+
+Input Format
+First line of input contains a single integer  denoting the number of test cases.
+First line of each test contains a single integer  denoting the size of the board.
+Next  lines of each test case contains  space separated integers. If the  integer in  line is 0, it means that cell is painted in black color otherwise it is painted in white color and is represented with .
+Sample Input 0
+2
+2
+0 0
+0 0
+2
+0 1
+1 0
+Sample Output 0
+No
+Yes
+Explanation 0
+    • In the first test case, adjacent cells are painted with same color making painted configuration invalid.
+    • In the second test case, every pair of adjacent cells is painted with different color making chess board configuration valid.
+
+Program:
+
+
+def solve_chess():
+    try:
+        t = int(input()) # Number of test cases
+        for _ in range(t):
+            n = int(input()) # Size of board
+            board = []
+            for _ in range(n):
+                board.append(list(map(int, input().split())))
+            
+            is_valid = True
+            for i in range(n):
+                for j in range(n):
+                    # Check right neighbor
+                    if j + 1 < n and board[i][j] == board[i][j+1]:
+                        is_valid = False
+                    # Check bottom neighbor
+                    if i + 1 < n and board[i][j] == board[i+1][j]:
+                        is_valid = False
+                if not is_valid: break
+            
+            print("Yes" if is_valid else "No")
+    except EOFError:
+        pass
+
+solve_chess()
