@@ -1,0 +1,44 @@
+
+An automobile company manufactures both a two wheeler (TW) and a four wheeler (FW). A company manager wants to make the production of both types of vehicle according to the given data below:
+    • 1st data, Total number of vehicle (two-wheeler + four-wheeler)=v
+    • 2nd data, Total number of wheels = W
+The task is to find how many two-wheelers as well as four-wheelers need to manufacture as per the given data.
+Input :
+    • 200  -> Value of V
+    • 540   -> Value of W
+Output :TW =130 FW=70
+Explanation:
+130+70 = 200 vehicles
+(70*4)+(130*2)= 540 wheels
+Constraints :
+    • 2<=W
+    • W%2=0
+    • V<W
+ Print “INVALID INPUT” , if inputs did not meet the constraints.
+
+PROGRAM:
+
+def calculate_vehicles():
+    try:
+        v = int(input("Enter Value of V: "))
+        w = int(input("Enter Value of W: "))
+
+        # Constraints check
+        if w < 2 or w % 2 != 0 or v >= w:
+            print("INVALID INPUT")
+            return
+
+        # Calculation
+        # 4*FW + 2*(V-FW) = W  => 2*FW = W - 2*V
+        fw = (w - (2 * v)) // 2
+        tw = v - fw
+
+        if fw >= 0 and tw >= 0:
+            print(f"TW ={tw} FW={fw}")
+        else:
+            print("INVALID INPUT")
+            
+    except ValueError:
+        print("INVALID INPUT")
+
+calculate_vehicles()
