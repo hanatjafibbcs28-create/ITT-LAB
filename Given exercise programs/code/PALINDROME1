@@ -1,0 +1,22 @@
+    1. 1. Get a 3-digit or 2-digit no and find reverse the given no and add it with the same no. Check whether it is a palindrome. If it is a palindrome, terminate the process or else take the sum as the input and repeat the same process until a palindrome is obtained. And  terminate the program if the palindrome is not obtained in 5 steps.
+  Eg:  Input:27
+      27+72=99
+         Output : It is a palindrome 
+PROGRAM:
+
+
+def find_palindrome(n):
+    for i in range(5):
+        rev = int(str(n)[::-1])
+        sum_val = n + rev
+        print(f"{n} + {rev} = {sum_val}")
+        
+        if str(sum_val) == str(sum_val)[::-1]:
+            print("Output: It is a palindrome")
+            return
+        n = sum_val
+    print("Output: Palindrome not obtained in 5 steps.")
+
+# Example usage
+num = int(input("Enter a 2 or 3 digit number: "))
+find_palindrome(num)
