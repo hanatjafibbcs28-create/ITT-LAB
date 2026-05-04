@@ -1,0 +1,69 @@
+Bob is making a video conference software. Whenever a new person joins the conference, Bob displays the person's name in the interface.
+However, displaying full name is tedious and takes much space.
+So he decided to display the shortest prefix which doesn't match with any prefix of any person who has joined earlier.
+
+Sample Input 
+3
+alvin
+alice
+alvin
+Sample Output 
+a
+ali
+alvin 2
+Sample Input 
+6
+mary
+stacy
+sam
+samuel
+sam
+miguel
+Sample Output 
+m
+s
+sa
+samu
+sam 2
+mi
+
+
+
+
+Program:
+def solve_conference():
+    try:
+        n = int(input())
+        names_count = {} # To track exact name occurrences
+        seen_prefixes = set() # To track all prefixes encountered so far
+        
+        for _ in range(n):
+            name = input().strip()
+            
+            # Case 1: Name has appeared before
+            if name in names_count:
+                names_count[name] += 1
+                print(f"{name} {names_count[name]}")
+            else:
+                # Case 2: New name, find shortest unique prefix
+                names_count[name] = 1
+                shortest_prefix = ""
+                found = False
+                
+                for i in range(1, len(name) + 1):
+                    prefix = name[:i]
+                    if not found and prefix not in seen_prefixes:
+                        shortest_prefix = prefix
+                        found = True
+                    # We must add ALL prefixes of the current name to the set
+                    seen_prefixes.add(prefix)
+                
+                # If name itself was a prefix of a previous name
+                if not found:
+                    print(name)
+                else:
+                    print(shortest_prefix)
+    except EOFError:
+        pass
+
+solve_conference()
