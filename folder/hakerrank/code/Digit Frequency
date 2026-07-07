@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int main() {
+    // Dynamically allocate memory for a string buffer up to 1000 characters
+    char *s = malloc(1001 * sizeof(char));
+    
+    // Read the line of text safely
+    if (scanf("%1000s", s) == 1) {
+        
+        // Frequency array initialized to 0 for digits 0-9
+        int frequency[10] = {0};
+        
+        // Loop through the string until the null terminator is reached
+        for (int i = 0; s[i] != '\0'; i++) {
+            // Check if the current character is a digit
+            if (isdigit(s[i])) {
+                // Subtract ASCII value of '0' to find the proper integer index
+                int digit = s[i] - '0';
+                frequency[digit]++;
+            }
+        }
+        
+        // Print the frequencies separated by a space
+        for (int i = 0; i < 10; i++) {
+            printf("%d ", frequency[i]);
+        }
+        printf("\n");
+    }
+    
+    // Free dynamically allocated buffer to prevent memory leaks
+    free(s);
+    return 0;
+}
