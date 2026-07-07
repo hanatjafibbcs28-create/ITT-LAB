@@ -1,0 +1,13 @@
+# 1. Read the English subscription data
+n = int(input())
+english_set = set(map(int, input().split()))
+
+# 2. Read the French subscription data
+m = int(input())
+french_set = set(map(int, input().split()))
+
+# 3. Find elements unique to each set (excluding the intersection)
+either_but_not_both = english_set.symmetric_difference(french_set)
+
+# 4. Print the total count of those unique students
+print(len(either_but_not_both))
