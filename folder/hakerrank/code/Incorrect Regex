@@ -1,0 +1,34 @@
+import sys
+import re
+
+def solve():
+    # Read all input data directly from standard input stream
+    raw_data = sys.stdin.read()
+    if not raw_data:
+        return
+        
+    # Split text into a list of lines cleanly
+    lines = raw_data.splitlines()
+    line_iter = iter(lines)
+    
+    try:
+        # Python 2 calls .next() directly on the iterator object
+        t_cases = int(line_iter.next().strip())
+    except (StopIteration, ValueError):
+        return
+
+    # Process exactly T test cases sequentially 
+    for _ in xrange(t_cases):  # Using xrange in PyPy2 preserves memory efficiency
+        try:
+            pattern = line_iter.next()
+            # Compile the regular expression pattern safely
+            re.compile(pattern)
+            print "True"
+        except re.error:
+            # Successfully catches illegal operators such as .*+ 
+            print "False"
+        except StopIteration:
+            break
+
+if __name__ == "__main__":
+    solve()
