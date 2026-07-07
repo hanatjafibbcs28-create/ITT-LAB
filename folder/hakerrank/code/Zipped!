@@ -1,0 +1,17 @@
+# 1. Read N (number of students) and X (number of subjects)
+num_students, num_subjects = map(int, input().split())
+
+# 2. Collect the space-separated marks for each subject row into a nested list
+all_subject_marks = []
+for _ in range(num_subjects):
+    subject_row = list(map(float, input().split()))
+    all_subject_marks.append(subject_row)
+
+# 3. Transpose the matrix using zip(*) to group scores by student
+# Each element in student_scores will be a tuple containing one student's marks across all subjects
+for student_scores in zip(*all_subject_marks):
+    # Calculate the average score for the current student
+    student_average = sum(student_scores) / num_subjects
+    
+    # Print the average formatted to exactly 1 decimal place
+    print(f"{student_average:.1f}")
