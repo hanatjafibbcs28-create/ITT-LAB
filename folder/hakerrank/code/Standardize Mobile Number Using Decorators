@@ -1,0 +1,24 @@
+def wrapper(f):
+    def fun(l):
+         # 1. Standardize each mobile number by isolating the last 10 digits
+        standardized_list = []
+        for num in l:
+            # Slicing the last 10 digits strips off any 0, 91, or +91 prefixes
+            core = num[-10:]
+            # Format the core 10 digits into the +91 xxxxx xxxxx layout
+            formatted = "+91 " + core[:5] + " " + core[5:]
+            standardized_list.append(formatted)
+            
+        # 2. Pass the standardized strings list into the original sorting function f
+        return f(standardized_list)
+    return fun
+
+@wrapper
+def sort_phone(l):
+    print(*sorted(l), sep='\n')
+
+if __name__ == '__main__':
+    l = [input() for _ in range(int(input()))]
+    sort_phone(l) 
+
+
