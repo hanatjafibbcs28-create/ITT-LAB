@@ -1,0 +1,34 @@
+class Solution:
+    def multiply(self, num1: str, num2: str) -> str:
+        # Corner case: if either number is "0", the result is "0"
+        if num1 == "0" or num2 == "0":
+            return "0"
+        
+        # The maximum possible length of the product is len(num1) + len(num2)
+        m, n = len(num1), len(num2)
+        result = [0] * (m + n)
+        
+        # Loop backwards through both strings
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                # Convert single characters to integers using ASCII values
+                digit1 = ord(num1[i]) - ord("0")
+                digit2 = ord(num2[j]) - ord("0")
+                
+                # Multiply digits and add to the existing value at this position
+                mul = digit1 * digit2
+                p1 = i + j
+                p2 = i + j + 1
+                
+                # Sum includes the multiplication result and previous carry
+                total = mul + result[p2]
+                
+                # Place the units digit at p2 and carry over the tens digit to p1
+                result[p2] = total % 10
+                result[p1] += total // 10
+                
+        # Skip any leading zero if it exists in the first position
+        start_idx = 1 if result[0] == 0 else 0
+        
+        # Convert the integer array back to a string
+        return "".join(str(digit) for digit in result[start_idx:])
