@@ -1,0 +1,9 @@
+import numpy
+
+def arrays(arr):
+     # Reverse the string array and convert it into a float NumPy array
+    return numpy.array(arr[::-1], float)
+
+arr = input().strip().split(' ')
+result = arrays(arr)
+print(result)
