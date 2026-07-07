@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    
+    // Read the input size integer
+    if (scanf("%d", &n) == 1) {
+        // The total number of rows and columns in the grid
+        int size = 2 * n - 1;
+        
+        // Loop through each row
+        for (int i = 0; i < size; i++) {
+            // Loop through each column
+            for (int j = 0; j < size; j++) {
+                
+                // Find the minimum distance to the top or bottom border
+                int min_row = (i < size - 1 - i) ? i : (size - 1 - i);
+                
+                // Find the minimum distance to the left or right border
+                int min_col = (j < size - 1 - j) ? j : (size - 1 - j);
+                
+                // The actual border distance is the smaller of row and column distances
+                int min_dist = (min_row < min_col) ? min_row : min_col;
+                
+                // Print the current cell value followed by a single space
+                printf("%d ", n - min_dist);
+            }
+            // Move to the next line at the end of each row
+            printf("\n");
+        }
+    }
+    return 0;
+}
