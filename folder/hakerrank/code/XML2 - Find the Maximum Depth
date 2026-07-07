@@ -1,0 +1,25 @@
+import xml.etree.ElementTree as etree
+
+maxdepth = 0
+def depth(elem, level):
+    global maxdepth
+     # Update the level for the current XML element node
+    level += 1
+    
+    # Track the highest nesting level encountered so far
+    if level > maxdepth:
+        maxdepth = level
+        
+    # Recursively explore all direct child components of this element
+    for child in elem:
+        depth(child, level)
+    # your code goes here
+
+if __name__ == '__main__':
+    n = int(input())
+    xml = ""
+    for i in range(n):
+        xml =  xml + input() + "\n"
+    tree = etree.ElementTree(etree.fromstring(xml))
+    depth(tree.getroot(), -1)
+    print(maxdepth)
