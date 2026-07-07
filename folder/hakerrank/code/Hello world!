@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main() {
+    // Declare a character array buffer to hold the input string.
+    // The maximum length of an input line is typically around 100 characters for this challenge.
+    char s[105];
+    
+    // Read an entire line of text until a newline '\n' is encountered.
+    // The specifier %[^\n] instructs scanf to read everything except a newline character.
+    scanf("%[^\n]%*c", s);
+  	
+    // Print the constant message followed by a newline
+    printf("Hello, World!\n");
+    
+    // Print the read input string stored inside buffer s
+    printf("%s\n", s);
+    
+    return 0;
+}
