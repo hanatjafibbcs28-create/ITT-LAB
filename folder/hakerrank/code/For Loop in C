@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main() {
+    int a, b;
+    
+    // Read the start (a) and end (b) points of our interval
+    if (scanf("%d\n%d", &a, &b) == 2) {
+        
+        // Array mapping numbers 1-9 to their lowercase English string representations
+        // Index 0 is unmapped ("") so that numbers match their respective index cleanly
+        char* labels[] = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        
+        // Loop continuously from 'a' up to and including 'b'
+        for (int i = a; i <= b; i++) {
+            if (i >= 1 && i <= 9) {
+                // If within 1 to 9, print the corresponding word string
+                printf("%s\n", labels[i]);
+            } else if (i % 2 == 0) {
+                // If greater than 9 and divisible by 2 with no remainder, it's even
+                printf("even\n");
+            } else {
+                // Otherwise, it must be an odd number greater than 9
+                printf("odd\n");
+            }
+        }
+    }
+    return 0;
+}
