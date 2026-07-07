@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main() {
+    int int1, int2;
+    float float1, float2;
+    
+    // 1. Read the two space-separated integers from the first line
+    scanf("%d %d", &int1, &int2);
+    
+    // 2. Read the two space-separated floating-point numbers from the second line
+    scanf("%f %f", &float1, &float2);
+    
+    // 3. Print the integer sum and difference separated by a space
+    printf("%d %d\n", int1 + int2, int1 - int2);
+    
+    // 4. Print the float sum and difference rounded to one decimal place (.1)
+    printf("%.1f %.1f\n", float1 + float2, float1 - float2);
+    
+    return 0;
+}
