@@ -6,8 +6,11 @@ int findMin(int* nums, int numsSize) {
         if (nums[mid] > nums[right]) {
             left = mid + 1;
         } 
-        else {
+        else if (nums[mid] < nums[right]) {
             right = mid;
+        } 
+        else {
+            right--;
         }
     }
     return nums[left];
